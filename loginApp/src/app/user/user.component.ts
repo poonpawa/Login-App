@@ -5,53 +5,50 @@ import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { FirebaseUserModel } from "../core/user.model";
+import { Router, Params } from "@angular/router";
+import { resolve } from "url";
 
 @Component({
   selector: "page-user",
-  templateUrl: "user.component.html",
-  styleUrls: ["user.component.css"]
+  templateUrl: "user.component.html"
 })
 export class UserComponent implements OnInit {
   user: FirebaseUserModel = new FirebaseUserModel();
   profileForm: FormGroup;
+  userName: string;
+  isStyle: boolean = true;
 
   constructor(
     public userService: UserService,
     public authService: AuthService,
+    private router: Router,
     private route: ActivatedRoute,
     private location: Location,
     private fb: FormBuilder
-  ) {}
+  ) {
+    setTimeout(() => {
+      this.loadfunct();
+    }, 200);
+  }
 
-  ngOnInit(): void {
+  loadfunct() {
+    this.isStyle = false;
+  }
+
+  ngOnInit(): any {
     this.route.data.subscribe(routeData => {
       let data = routeData["data"];
       if (data) {
         this.user = data;
-        this.createForm(this.user.name);
+        console.log(JSON.stringify(this.userName));
       }
     });
-  }
-
-  createForm(name) {
-    this.profileForm = this.fb.group({
-      name: [name, Validators.required]
-    });
-  }
-
-  save(value) {
-    this.userService.updateCurrentUser(value).then(
-      res => {
-        console.log(res);
-      },
-      err => console.log(err)
-    );
   }
 
   logout() {
     this.authService.doLogout().then(
       res => {
-        this.location.back();
+        this.router.navigate(["/login"]);
       },
       error => {
         console.log("Logout error", error);

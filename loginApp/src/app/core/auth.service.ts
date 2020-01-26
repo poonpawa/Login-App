@@ -14,9 +14,30 @@ export class AuthService {
         .createUserWithEmailAndPassword(value.email, value.password)
         .then(
           res => {
-            resolve(res);
+            this.setName(value).then(res => {
+              resolve(res);
+            });
           },
           err => reject(err)
+        );
+    });
+  }
+
+  setName(value) {
+    return new Promise<any>((resolve, reject) => {
+      var user = firebase.auth().currentUser;
+      user
+        .updateProfile({
+          displayName: value.name
+        })
+        .then(
+          res => {
+            resolve(res);
+            console.log("saved User: " + user.displayName);
+          },
+          err => {
+            console.log("username not saved");
+          }
         );
     });
   }

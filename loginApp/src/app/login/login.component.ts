@@ -5,12 +5,12 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "page-login",
-  templateUrl: "login.component.html",
-  styleUrls: ["./login.component.css"]
+  templateUrl: "login.component.html"
 })
 export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string = "";
+  isStyle: boolean = true;
 
   constructor(
     public authService: AuthService,
@@ -18,6 +18,13 @@ export class LoginComponent {
     private fb: FormBuilder
   ) {
     this.createForm();
+    setTimeout(() => {
+      this.loadfunct();
+    }, 200);
+  }
+
+  loadfunct() {
+    this.isStyle = false;
   }
 
   createForm() {
