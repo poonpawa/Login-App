@@ -98,3 +98,41 @@ input:focus {
 .moveCard {
   transform: translateY(1000px);
 }
+
+.rotateCard {
+  transform: rotateY(160deg);
+}
+
+@media all and (max-width: 500px) {
+  #centerCard {
+    height: 455px;
+    width: 250px;
+    padding: 35px;
+  }
+
+  .headerDiv {
+    margin: 10px;
+  }
+
+  .headerDiv p {
+    font-size: 2rem;
+  }
+
+  form {
+    margin: 0px;
+  }
+
+  input {
+    width: 215px;
+    height: 35px;
+  }
+
+  #loginBtn {
+    width: 240px;
+    height: 35px;
+  }
+
+  .signUpText {
+    font-size: 1rem;
+  }
+}
