@@ -1,0 +1,33 @@
+<div class="rootContainer">
+  <div id="centerCard" [class.moveCard]="isStyle">
+    <div class="headerDiv">
+      <p>Welcome</p>
+      <div class="infoText">
+        Sign In to continue
+      </div>
+    </div>
+    <form class="loginIn" [formGroup]="loginForm">
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        autocomplete="off"
+        formControlName="email"
+      /><br />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        autocomplete="off"
+        formControlName="password"
+      /><br />
+      <label class="error">{{ errorMessage }}</label>
+      <button id="loginBtn" type="submit" (click)="tryLogin(loginForm.value)">
+        Sign In
+      </button>
+    </form>
+    <div class="signUpText">
+      New User? <a href="./register">Sign Up Instead</a>
+    </div>
+  </div>
+</div>

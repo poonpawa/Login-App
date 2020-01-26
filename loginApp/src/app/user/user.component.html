@@ -1,0 +1,10 @@
+<div class="rootContainer">
+  <div id="centerCard" [class.moveCard]="isStyle">
+    <div class="headerDiv">
+      <p>Hello {{ user.name }}, Welcome to my Login App</p>
+    </div>
+    <div class="loginIn">
+      <button id="loginBtn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</div>

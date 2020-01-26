@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Register Page</title>
+        <link rel="stylesheet" href="./Login.css" />
+    </head>
+    <body>
+        <div class="rootContainer">
+            <div id="centerCard" class="moveCard">
+                <div class="headerDiv">
+                    <p>Hello XYZ, Welcome to my Login App</p>
+                </div>
+                <form class="loginIn">
+                    <button id="loginBtn">Logout</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            function makeTransition() {
+                const cardEl = document.querySelector("#centerCard");
+                cardEl.classList.remove("moveCard");
+            }
+
+            window.addEventListener("load", makeTransition);
+        </script>
+    </body>
+</html>

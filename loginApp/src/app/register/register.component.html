@@ -1,0 +1,49 @@
+<div class="rootContainer">
+  <div id="centerCard" [class.moveCard]="isStyle">
+    <div class="headerDiv">
+      <p>Get on Board</p>
+    </div>
+    <form class="loginIn" [formGroup]="registerForm">
+      <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        autocomplete="off"
+        formControlName="name"
+      /><br />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        autocomplete="off"
+        formControlName="email"
+      /><br />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        autocomplete="off"
+        formControlName="password"
+      /><br />
+      <input
+        type="password"
+        name="confirmPass"
+        placeholder="Confirm Password"
+        autocomplete="off"
+        formControlName="confirmpassword"
+      /><br />
+      <label class="error">{{ errorMessage }}</label>
+      <label class="success">{{ successMessage }}</label>
+      <button
+        id="loginBtn"
+        type="submit"
+        (click)="tryRegister(registerForm.value)"
+      >
+        Sign Up
+      </button>
+    </form>
+    <div class="signUpText">
+      <a href="./login">I'm already a Member</a>
+    </div>
+  </div>
+</div>
