@@ -24,7 +24,7 @@ export class RegisterComponent {
     this.createForm();
     setTimeout(() => {
       this.loadfunct();
-    }, 200);
+    }, 100);
   }
 
   loadfunct() {
